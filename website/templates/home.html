@@ -1,0 +1,303 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<br> 
+<h1 align="center"> Student Database Management System</h1>
+
+<h4 align="center" style="color: rgba(0, 0, 255, 0.563);">Welcome ,{{user.Name}}</h4>
+
+<div class="d-flex justify-content-center mt-4">
+  <button
+    type="button"
+    class="btn btn-primary mr-3"
+    data-target="#add"
+    data-toggle="modal"
+  >
+    ADD New Student Database
+</button>
+</div>
+<br />
+
+<!--search box -->
+<div class="container container-center">
+  <form method="POST">
+    <div class="d-flex justify-content-center mr-5">
+      <input
+        name="search"
+        class="form-control"
+        type="search"
+        placeholder="Search...."
+      />
+
+      <div class="dropdown">
+        <select name="sort" class="form-control ml-2">
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+          <option value="Roll No">Roll No</option>
+          <option value="Age">Age</option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <div class="d-flex justify-content-center">
+    <button
+      name="action"
+      value="search"
+      type="submit"
+      class="btn btn-info mr-2"
+    >
+      Search
+    </button>
+    <a type="button" class="btn btn-secondary" href="/">Refresh</a>
+    </div>
+  </form>
+</div>
+
+                        <!--to add-->
+<div class="modal fade" tabindex="-1" id="add" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ADD</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span>&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+<form method="post">
+  <div class="form-group">
+    <label for="rn"> Roll No: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="rn"
+      placeholder="Enter Student Roll No"
+    />
+  </div>
+  <div class="form-group">
+    <label for="name"> Name: </label>
+    <input
+      class="form-control"
+      type="text"
+      name="name"
+      placeholder="Enter Student name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="age"> Age: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="age"
+      placeholder="Enter Student age"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Class"> Class: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="Class"
+      placeholder="Enter Student Class "
+    />
+  </div>
+  <button name="action" value="add" type="submit" class="btn btn-success">
+    Save
+  </button>
+</form>
+</div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">
+    Close
+</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br />
+
+<!--to view-->
+
+
+{% if stu.items %}
+<div id="view">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Class</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for i in stu.items %}
+      <tr>
+        <td>{{i.Roll_No}}</td>
+        <td>{{i.Name}}</td>
+        <td>{{i.Age}}</td>
+        <td>{{i.Class}}</td>
+        <td>
+            <button type="button"  
+            data-id="{{ i.id }}" 
+            data-rn="{{i.Roll_No}}" 
+            data-name="{{i.Name}}" 
+            data-age="{{i.Age}}" 
+            data-class="{{i.Class}}" 
+            class="edit-btn btn btn-warning btn-sm" 
+            data-toggle="modal" 
+            data-target="#edit">
+
+              Edit
+            </button>
+        </td>
+        <td>
+          <a href="{{url_for('views.delete',id=i.id)}}">
+            <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure , you want to delete this Student?')" >
+              Delete
+            </button></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<nav>
+  <ul class="pagination justify-content-center">
+
+    {% if stu.has_prev %}
+    <li class="page-item">
+      <a class="page-link"
+         href="{{ url_for('views.home', page=stu.prev_num) }}">
+         Previous
+      </a>
+    </li>
+    {% endif %}
+
+    <li class="page-item disabled">
+      <span class="page-link">
+        Page {{ stu.page }} of {{ stu.pages }}
+      </span>
+    </li>
+
+    {% if stu.has_next %}
+    <li class="page-item">
+      <a class="page-link"
+         href="{{ url_for('views.home', page=stu.next_num) }}">
+         Next
+      </a>
+    </li>
+    {% endif %}
+
+  </ul>
+</nav>
+</div>
+
+{% else %}
+
+<div class="text-center mt-5"> 
+  <h5>No students added yet.</h5> 
+  <p>Click <b>Add New Student Database</b> to add your first record.</p> 
+</div>
+
+{% endif %}
+
+
+<!--Database edit-->
+
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Edit</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <form method="post" class="mx-5" action="{{url_for('views.edit')}}">
+
+        <input type="hidden" name="id" id="edit-id">
+   <div class="form-group">
+    <label for="rn"> Roll No: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="rn"
+      id="edit-rn"
+      placeholder="Enter Student Roll No"/>
+</div>
+  <div class="form-group">
+    <label for="name"> Name: </label>
+    <input
+      class="form-control"
+      type="text"
+      name="name"
+      id="edit-name"
+      placeholder="Enter Student name"
+      
+    />
+  </div>
+  <div class="form-group">
+    <label for="age"> Age: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="age"
+      id="edit-age"
+      placeholder="Enter Student age"
+      
+    />
+  </div>
+  <div class="form-group">
+    <label for="Class"> Class: </label>
+    <input
+      class="form-control"
+      type="number"
+      name="Class"
+      id="edit-class"
+      placeholder="Enter Student Class "
+    
+    />
+  </div>
+    <button type="submit" class="btn btn-success" >Save Changes</button>
+  </form>
+  <br>
+
+    <div class="modal-footer">
+      <a href="{{url_for('views.home')}}" class="btn btn-secondary">
+        Back
+      </a>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<script>
+
+  const edit=document.querySelectorAll('.edit-btn')
+
+  edit.forEach(element => {
+
+    element.addEventListener('click',function(){
+
+      document.getElementById('edit-id').value=this.dataset.id;
+      document.getElementById('edit-rn').value=this.dataset.rn;
+      document.getElementById('edit-name').value=this.dataset.name;
+      document.getElementById('edit-age').value=this.dataset.age;
+      document.getElementById('edit-class').value=this.dataset.class;
+
+    });
+    
+  });
+
+</script>
+{% endblock  %}
+
