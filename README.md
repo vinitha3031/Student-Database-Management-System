@@ -109,19 +109,19 @@ python main.py
 
 ### Signup Page
 
-![Signup Page](screenshots/signup.png)
+![Signup Page](Screenshots/signup.png)
 
 ### Home Page
 
-![Home Page](screenshots/home.png)
+![Home Page](Screenshots/home.png)
 
 ### Add Student
 
-![Add Student](screenshots/add-student.png)
+![Add Student](Screenshots/add-student.png)
 
 ### Edit Student
 
-![Edit Student](screenshots/edit-student.png)
+![Edit Student](Screenshots/edit-student.png)
 
 ## 📌 Future Improvements
 
