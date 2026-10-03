@@ -1,49 +1,55 @@
+
 # 🎓 Student Database Management System
 
-A web-based **Student Database Management System** built using **Flask** and **MySQL**. This application allows users to securely manage student records through authentication, search, sorting, pagination, and full CRUD operations.
+A full-stack **Student Database Management System** built with **Flask** and **MySQL**, featuring secure user authentication and user-specific student record management.
+
+The application supports **CRUD operations, search, sorting, pagination, input validation, and duplicate roll number prevention**, with a responsive Bootstrap-based interface.
 
 ---
 
 ## ✨ Features
 
-* 🔐 User Registration and Login
-* 🔒 Secure Password Hashing
-* 👤 User-specific Student Records
-* ➕ Add Student Records
-* ✏️ Edit Student Details
-* 🗑️ Delete Student Records
-* 🔍 Search Students by Roll Number or Name
-* 📊 Sort Student Records
-* 📄 Pagination
-* 💬 Flash Messages for User Feedback
-* ✅ Input Validation
-* 🛡️ Duplicate Roll Number Prevention (per user)
+- 🔐 User Registration and Login
+- 🔒 Secure Password Hashing
+- 👤 User-specific Student Records
+- ➕ Add Student Records
+- ✏️ Edit Student Details
+- 🗑️ Delete Student Records
+- 🔍 Search Students by Roll Number or Name
+- 📊 Sort Student Records
+- 📄 Pagination
+- 💬 Flash Messages for User Feedback
+- ✅ Input Validation
+- 🛡️ Duplicate Roll Number Prevention (per user)
+- 📱 Responsive User Interface
 
 ---
 
 ## 🛠️ Technologies Used
 
-* Python
-* Flask
-* Flask-SQLAlchemy
-* Flask-Login
-* Flask-Migrate
-* MySQL
-* SQLAlchemy ORM
-* Bootstrap 4
-* HTML
-* JavaScript
-* Git
-* GitHub
+- Python
+- Flask
+- Flask-SQLAlchemy
+- Flask-Login
+- Flask-Migrate
+- MySQL
+- SQLAlchemy ORM
+- Bootstrap 4
+- HTML5
+- CSS3
+- JavaScript
+- Git
+- GitHub
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-student/
+Student-Database-Management-System/
 │
 ├── migrations/
+│
 ├── website/
 │   ├── templates/
 │   ├── static/
@@ -53,83 +59,123 @@ student/
 │   └── __init__.py
 │
 ├── main.py
+├── requirements.txt
+├── vercel.json
 ├── .gitignore
 └── README.md
-```
+````
 
 ---
 
 ## 🚀 Installation
 
-1. Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/vinitha3031/Student-Database-Management-System.git
 ```
 
-2. Navigate to the project folder
+### 2. Navigate to the project folder
 
 ```bash
 cd Student-Database-Management-System
 ```
 
-3. Create a virtual environment
+### 3. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-4. Activate the virtual environment
+### 4. Activate the virtual environment
 
-Windows
+**Windows:**
 
 ```bash
 .venv\Scripts\activate
 ```
 
-5. Install dependencies
+### 5. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-6. Configure your MySQL database.
+### 6. Configure the database
 
-Update the database URI in your environment variables or configuration.
+Create a `.env` file in the project root and configure the required environment variables:
 
-7. Run the application
+```env
+SECRET_KEY=your-secret-key
+DATABASE_URL=your-mysql-database-url
+```
+
+> Do not commit your `.env` file to GitHub.
+
+### 7. Run the application
 
 ```bash
 python main.py
+```
+
+The application will be available locally at:
+
+```text
+http://127.0.0.1:5000
 ```
 
 ---
 
 ## 📸 Screenshots
 
-### Signup Page
+### 🏠 Landing Page
 
-![Signup Page](Screenshots/signup.png)
+![Landing Page](Screenshots/Landing-Page.png)
 
-### Home Page
+### 📝 Signup Page
 
-![Home Page](Screenshots/home.png)
+![Signup Page](Screenshots/signup-page.png)
 
-### Add Student
+### 🔐 Login Page
+
+![Login Page](Screenshots/login-page.png)
+
+### 📊 Dashboard
+
+![Dashboard](Screenshots/dashboard.png)
+
+### ➕ Add Student
 
 ![Add Student](Screenshots/add-student.png)
 
-### Edit Student
+### ✏️ Edit Student
 
 ![Edit Student](Screenshots/edit-student.png)
 
+---
+
+## ☁️ Deployment
+
+The application is configured for deployment using **Vercel** with a MySQL database hosted on **Aiven**.
+
+Deployment configuration is included in:
+
+```text
+vercel.json
+```
+
+Environment variables such as the database connection string and secret key should be configured through the deployment platform rather than committed to the repository.
+
+---
+
 ## 📌 Future Improvements
 
-* Responsive UI improvements
-* Profile management
-* Export student data
-* Dashboard with statistics
-* Dark mode
+* 👤 Profile Management
+* 📤 Export Student Data
+* 📈 Dashboard Statistics
+* 🌙 Dark Mode
+* 🔎 Advanced Search and Filtering
+* 📊 Data Visualization
 
 ---
 
@@ -137,4 +183,8 @@ python main.py
 
 **Vinitha G**
 
-GitHub: https://github.com/vinitha3031
+GitHub:
+[https://github.com/vinitha3031](https://github.com/vinitha3031)
+
+````
+

@@ -3,20 +3,20 @@
    ========================= */
 
 .auth-page {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 200px);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 .auth-card {
     width: 100%;
     max-width: 430px;
 
-    padding: 35px;
+    padding: 25px;
 
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(14px);
@@ -30,7 +30,7 @@
 
 .auth-header {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
 }
 
 .auth-header h1 {
@@ -52,12 +52,12 @@
 }
 
 .auth-card .form-control {
-    height: 46px;
+    height: 42px;
 
     border: 1px solid #d1d5db;
     border-radius: 8px;
 
-    padding: 10px 12px;
+    padding: 8px 12px;
 }
 
 .auth-card .form-control:focus {
@@ -86,7 +86,7 @@
 }
 
 .auth-footer {
-    margin: 22px 0 0;
+    margin: 16px 0 0;
 
     text-align: center;
     color: #6b7280;
