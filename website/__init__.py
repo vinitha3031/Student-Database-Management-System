@@ -23,7 +23,7 @@ def create_app():
     )
 
     database_url = database_url.replace(
-        "ssl-mode=REQUIRED", "ssl=true"
+    "ssl_mode=REQUIRED", "ssl=true"
     )
 
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
