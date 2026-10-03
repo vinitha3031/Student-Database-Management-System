@@ -5,7 +5,11 @@ from . import db
 
 views=Blueprint("views",__name__)
 
-@views.route("/",methods=['GET','POST'])
+@views.route("/")
+def landing():
+    return render_template("landing.html")
+
+@views.route("/dashboard", methods=['GET', 'POST'])
 @login_required
 def home():
     data = Student_db.query.filter_by(user_id=current_user.id)

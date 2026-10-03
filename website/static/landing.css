@@ -1,0 +1,634 @@
+/* =========================
+   Landing Page
+   ========================= */
+
+.landing-page {
+    min-height: calc(100vh - 80px);
+}
+
+/* =========================
+   Landing Background
+   ========================= */
+
+body:has(.landing-page) {
+    background:
+        radial-gradient(circle at 20% 20%,
+            rgba(71, 126, 220, 0.35),
+            transparent 35%),
+        radial-gradient(circle at 80% 70%,
+            rgba(30, 70, 140, 0.3),
+            transparent 35%),
+        linear-gradient(135deg,
+            #061225,
+            #0a1937,
+            #102b55);
+}
+
+body:has(.landing-page) .background {
+    display: none;
+}
+
+/* =========================
+   Landing Navbar
+   ========================= */
+
+.landing-navbar {
+    background: rgba(7, 22, 48, 0.96);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.landing-navbar .nav-link {
+    transition: all 0.2s ease;
+}
+
+.landing-navbar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+
+.landing-hero {
+    width: 92%;
+    max-width: 1200px;
+    min-height: calc(100vh - 80px);
+
+    margin: 0 auto;
+    padding: 70px 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Hero Content */
+
+.hero-content {
+    max-width: 600px;
+}
+
+.landing-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 7px 16px;
+
+    color: white;
+    background: rgba(10, 25, 55, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.hero-content h1 {
+    margin: 0;
+
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content p {
+    max-width: 550px;
+    margin: 22px 0 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Hero Buttons */
+
+.landing-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.landing-buttons .btn {
+    min-width: 130px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.landing-primary {
+    background: #0a1937;
+    color: white;
+    transition: all 0.25s ease;
+}
+
+.landing-primary:hover {
+    background: #142b55;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.landing-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.25s ease;
+}
+
+.landing-secondary:hover {
+    background: rgba(255, 255, 255, 0.35);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Hero Image */
+
+.hero-image {
+    width: 100%;
+    max-width: 550px;
+    justify-self: center;
+
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45);
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 380px;
+
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* =========================
+   Section Divider
+   ========================= */
+
+.section-divider {
+    width: 85%;
+    max-width: 1100px;
+    height: 1px;
+    margin: 0 auto;
+
+    background: linear-gradient(to right,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent);
+}
+
+/* =========================
+   Features Section
+   ========================= */
+
+.landing-features {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.section-heading span {
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    margin: 10px 0;
+
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.section-heading p {
+    max-width: 600px;
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    padding: 32px 25px;
+
+    color: white;
+    text-align: center;
+
+    background: rgba(5, 15, 35, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    background: rgba(10, 25, 55, 0.65);
+    border-color: rgba(255, 255, 255, 0.35);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+
+    font-size: 1.7rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+}
+
+/* =========================
+   Showcase / About Section
+   ========================= */
+
+.landing-showcase {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 30px auto 0;
+    padding: 70px 60px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+
+    background: rgba(0, 0, 0, 0.28);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Showcase Text */
+
+.showcase-label {
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.showcase-content h2 {
+    margin: 12px 0 15px;
+
+    color: white;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.showcase-content p {
+    max-width: 500px;
+    margin-bottom: 25px;
+
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+}
+
+/* Showcase Points */
+
+.showcase-points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.showcase-points div {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.showcase-points span {
+    width: 22px;
+    height: 22px;
+
+    margin-right: 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+}
+
+/* Showcase Image */
+
+.showcase-image {
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.showcase-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.showcase-image img {
+    display: block;
+    width: 100%;
+    height: 320px;
+
+    object-fit: cover;
+}
+
+/* =========================
+   CTA Section
+   ========================= */
+
+.landing-cta {
+    width: 92%;
+    max-width: 1100px;
+
+    margin: 55px auto 20px;
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.cta-label {
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.cta-content h2 {
+    max-width: 700px;
+    margin: 12px auto 15px;
+
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.cta-content p {
+    max-width: 550px;
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+}
+
+.cta-button {
+    margin-top: 25px;
+    padding: 11px 25px;
+
+    background: white;
+    color: #0a1937;
+
+    border-radius: 8px;
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+.cta-button:hover {
+    background: #e5eaf2;
+    color: #0a1937;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   Profile Dropdown
+   ========================= */
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-circle {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.profile-dropdown {
+    min-width: 220px;
+    margin-top: 8px;
+    padding: 8px;
+
+    background: rgba(7, 22, 48, 0.97);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-dropdown-header {
+    padding: 8px 10px;
+    color: white;
+}
+
+.profile-dropdown-header strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.profile-dropdown-header small {
+    display: block;
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+}
+
+.profile-dropdown .dropdown-divider {
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.profile-dropdown .dropdown-item {
+    padding: 8px 10px;
+
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+}
+
+.profile-dropdown .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 768px) {
+
+    /* Hero */
+
+    .landing-hero {
+        width: 92%;
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        padding: 60px 10px;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1rem;
+    }
+
+    .landing-buttons {
+        width: 100%;
+        max-width: 320px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        flex-direction: column;
+    }
+
+    .landing-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-image {
+        max-width: 500px;
+    }
+
+    .hero-image img {
+        height: 280px;
+    }
+
+    /* Features */
+
+    .landing-features {
+        padding: 60px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Showcase */
+
+    .landing-showcase {
+        grid-template-columns: 1fr;
+
+        padding: 35px 25px;
+        gap: 30px;
+    }
+
+    .showcase-content h2 {
+        font-size: 1.9rem;
+    }
+
+    .showcase-image img {
+        height: 240px;
+    }
+}

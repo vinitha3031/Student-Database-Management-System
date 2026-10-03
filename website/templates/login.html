@@ -1,32 +1,75 @@
-{% extends 'base.html' %} {% block topic %}Login{% endblock %} {% block
-content %}
-
-<h1 align="center" class="mt-5">Login</h1>
-
-<div class="d-flex justify-content-center">
-<form method="post" style="width: 400px;">                                                                                                      
-  <div class="form-group">
-    <label for="email"> Email: </label>
-    <input
-      class="form-control"
-      type="email"
-      name="email"
-      placeholder="Enter Email"
+{% extends 'base.html' %} {% block topic %}Login{% endblock %} {% block content
+%} {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}" />
+{% endblock %}
+<nav class="navbar navbar-expand-lg custom-navbar auth-navbar">
+  <a class="navbar-brand" href="/">
+    <img
+      src="{{ url_for('static', filename='logo1.png') }}"
+      alt="StudentDB"
+      class="navbar-logo"
     />
-  </div>
-  <div class="form-group">
-    <label for="Password"> Password: </label>
-    <input
-      class="form-control"
-      type="password"
-      name="password"
-      placeholder="Enter Password"
-    />
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#authNavbar"
+    aria-controls="authNavbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="authNavbar">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" href="/"> Home </a>
+
+      <a class="nav-item nav-link" href="/#about"> About </a>
+
+      <a class="nav-item nav-link" href="/Signup"> Sign up </a>
     </div>
-    <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1>Welcome Back</h1>
+      <p>Login to your StudentDB account</p>
+    </div>
+
+    <form method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button type="submit" class="btn auth-btn">Login</button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account?
+      <a href="/Signup">Sign up</a>
+    </p>
+  </div>
 </div>
 
 {% endblock %}
-

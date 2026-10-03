@@ -1,0 +1,197 @@
+{% extends 'base.html' %} {% block topic %}StudentDB{% endblock %} {% block
+content %} {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}" />
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg custom-navbar landing-navbar">
+  <a class="navbar-brand" href="/">
+    <img
+      src="{{ url_for('static', filename='logo1.png') }}"
+      alt="StudentDB"
+      class="navbar-logo"
+    />
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#landingNavbar"
+    aria-controls="landingNavbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="landingNavbar">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" href="/"> Home </a>
+
+      <a class="nav-item nav-link" href="#about"> About </a>
+
+      {% if current_user.is_authenticated %}
+
+      <a class="nav-item nav-link" href="/dashboard"> Dashboard </a>
+
+      <div class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle profile-link"
+          href="#"
+          id="profileDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="profile-circle">
+            {{ current_user.Name[0] | upper }}
+          </span>
+
+          {{ current_user.Name }}
+        </a>
+
+        <div
+          class="dropdown-menu dropdown-menu-right profile-dropdown"
+          aria-labelledby="profileDropdown"
+        >
+          <div class="profile-dropdown-header">
+            <strong>{{ current_user.Name }}</strong>
+            <small>{{ current_user.email }}</small>
+          </div>
+
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="/dashboard"> Dashboard </a>
+
+          <a class="dropdown-item" href="/logout"> Logout </a>
+        </div>
+      </div>
+
+      {% else %}
+
+      <a class="nav-item nav-link" href="/login"> Login </a>
+
+      <a class="nav-item nav-link landing-signup" href="/Signup"> Sign up </a>
+
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<div class="landing-page">
+  <section class="landing-hero">
+    <div class="hero-content">
+      <span class="landing-label"> STUDENT DATABASE MANAGEMENT </span>
+
+      <h1>
+        Manage Student<br />
+        Records with Ease
+      </h1>
+
+      <p>
+        A simple and organised way to store, search, edit, and manage your
+        student information.
+      </p>
+
+      <div class="landing-buttons">
+        <a href="/Signup" class="btn landing-primary"> Get Started -></a>
+
+        <a href="/login" class="btn landing-secondary"> Login </a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="{{ url_for('static', filename='hero-img.jpg') }}"
+        alt="Student database management"
+      />
+    </div>
+  </section>
+  <div class="section-divider"></div>
+</div>
+
+<section class="landing-features">
+  <div class="section-heading">
+    <span>FEATURES</span>
+    <h2>Everything You Need to Manage Students</h2>
+    <p>Keep your student records organised and easy to manage.</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">➕</div>
+      <h3>Add Students</h3>
+      <p>Add student details and keep all your records stored in one place.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🔎</div>
+      <h3>Search Records</h3>
+      <p>Quickly find student information using the search functionality.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">✏️</div>
+      <h3>Manage Records</h3>
+      <p>
+        Edit or delete student records whenever you need to keep your database
+        updated.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="landing-showcase" id="about">
+  <div class="showcase-content">
+    <span class="showcase-label">ABOUT STUDENTDB</span>
+
+    <h2>A Simple Way to Manage Student Records</h2>
+
+    <p>
+      StudentDB is a web-based student database management system designed to
+      make storing, searching, updating, and managing student information simple
+      and organised.
+    </p>
+
+    <div class="showcase-points">
+      <div>
+        <span>✓</span>
+        Keep student information organised
+      </div>
+
+      <div>
+        <span>✓</span>
+        Find records quickly when needed
+      </div>
+
+      <div>
+        <span>✓</span>
+        Easily update your database
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-image">
+    <img
+      src="{{ url_for('static', filename='student-management.jpg') }}"
+      alt="Students using computers"
+    />
+  </div>
+</section>
+
+<section class="landing-cta">
+  <div class="cta-content">
+    <span class="cta-label">GET STARTED</span>
+
+    <h2>Ready to Manage Your Student Records?</h2>
+
+    <p>
+      Create your account and keep your student information organised in one
+      place.
+    </p>
+
+    <a href="/Signup" class="btn cta-button"> Create Account → </a>
+  </div>
+</section>
+{% endblock %}

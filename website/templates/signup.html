@@ -1,48 +1,96 @@
 {% extends 'base.html' %} {% block topic %}Sign up{% endblock %} {% block
-content %}
+content %} {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}" />
+{% endblock %}
 
-<h1 align="center" class="mt-5">Sign up</h1>
+<nav class="navbar navbar-expand-lg custom-navbar auth-navbar">
+  <a class="navbar-brand" href="/">
+    <img
+      src="{{ url_for('static', filename='logo1.png') }}"
+      alt="StudentDB"
+      class="navbar-logo"
+    />
+  </a>
 
-<div class="d-flex justify-content-center">
-<form method="post" style="width: 400px;">
-  <div class="form-group">
-    <label for="email"> Email: </label>
-    <input
-      class="form-control"
-      type="email"
-      name="email"
-      placeholder="Enter Email"
-    />
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#authNavbar"
+    aria-controls="authNavbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="authNavbar">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" href="/"> Home </a>
+
+      <a class="nav-item nav-link" href="/#about"> About </a>
+
+      <a class="nav-item nav-link" href="/login"> Login </a>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="name"> Name: </label>
-    <input
-      class="form-control"
-      type="text"
-      name="name"
-      placeholder="Enter your name"
-    />
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1>Create Account</h1>
+      <p>Sign up to start using StudentDB</p>
+    </div>
+
+    <form method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Password1">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          name="password1"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Password2">Confirm Password</label>
+        <input
+          class="form-control"
+          type="password"
+          name="password2"
+          placeholder="Confirm your password"
+        />
+      </div>
+
+      <button type="submit" class="btn auth-btn">Create Account</button>
+    </form>
+
+    <p class="auth-footer">
+      Already have an account?
+      <a href="/login">Login</a>
+    </p>
   </div>
-  <div class="form-group">
-    <label for="Password1"> Password: </label>
-    <input
-      class="form-control"
-      type="password"
-      name="password1"
-      placeholder="Enter Password"
-    />
-  </div>
-  <div class="form-group">
-    <label for="Password2">Confirm Password: </label>
-    <input
-      class="form-control"
-      type="password"
-      name="password2"
-      placeholder="Confirm Password"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 </div>
 
 {% endblock %}
